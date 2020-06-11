@@ -1,0 +1,155 @@
+------------------------------------
+
+Ação:
+	set servidor remoto origin
+Comando:
+	git remote add origin <servidor remoto origin>
+	
+Exemplo:
+	git remote add origin https://github.com/tiporox/anotacoes-git.git
+
+
+------------------------------------
+
+Ação:
+	corrige mensagem do ultimo commit enviado
+Comando:
+	git commit -m "<msg nova commit>" --amend 
+	
+Exemplo:
+	git status
+	git add file1.txt
+	git commit -m "msg errada"
+	git log
+	git commit -m "msg certa" --amend 
+	git log
+
+------------------------------------
+
+Ação:	
+	Volta o indice atual do commit, sem remover as alterações, apenas jogando elas para stage. Utilizado para agrupar commits desnecessarios.
+Comando:
+	git reset --soft HEAD~3
+	
+Exemplo:
+	git add file1.txt
+	git commit -m 'alteracao 1'
+	git add file1.txt
+	git commit -m 'alteracao 2'
+	git add file1.txt
+	git commit -m 'alteracao 3'
+	git log
+	git reset --soft HEAD~3
+	git status
+	git commit -m 'alteracao xmpto em 1 commit'
+	git log
+
+------------------------------------
+
+Ação:	
+	Volta o indice atual do commit, sem remover as alterações, apenas jogando elas para stage, vai ser feito de uma forma interativa, 
+	permitindo vc escolher o que fazer com cada commit e depois definir a nova msg. Utilizado para agrupar commits desnecessarios.
+Comando:
+	git rebase -i HEAD~2
+
+Exemplo:
+	git add file1.txt
+	git commit -m 'alteracao 6'
+	git add file1.txt
+	git commit -m 'alteracao 7'
+	git log
+	git rebase -i HEAD~2	
+	git log	
+
+------------------------------------
+
+Ação:	
+	Volta o indice atual do commit, matando todas alterações dos commits pulados. Utilizado para desfazer commits errados.
+Comando:
+	git reset --hard HEAD~2
+	
+Exemplo:
+	git add file1.txt
+	git commit -m 'alteracao 4'
+	git add file1.txt
+	git commit -m 'alteracao 5'
+	git log
+	git reset --hard HEAD~2
+	git status
+	git log
+
+------------------------------------
+
+Ação:	
+	Desfazer todas alterações feitas em um arquivo ate o ultimo commit executado caso ele nao tenha sido adicionado para stage.
+Comando:
+	git checkout <nome arquivo>
+
+Exemplo:
+	git checkout file1.txt
+	
+------------------------------------
+
+Ação:	
+	Remove arquivo da area de stage. Utilizado quando é adicionado arquivos indevidamentes no stage para commit.
+Comando:
+	git restore --staged <nome arquivo>
+
+Exemplo:
+	git restore --staged file1.txt
+		
+------------------------------------
+
+Ação:	
+	Remove o arquivo do stage para commit. Utilizado quando é adicionado arquivos indevidamentes no stage para commit.
+Comando:
+	git reset -- <nome arquivo>
+
+Exemplo:
+	git reset -- file1.txt	
+	
+------------------------------------
+
+Ação:	
+	Abre menu interativo para adicao e remocao de arquivos no stage
+Comando:
+	git add -i
+
+Exemplo:
+	git add -i	
+	
+------------------------------------
+
+Ação:	
+	Abre menu interativo para adicao e remocao de alterações de codigos linha a linha para ir ou nao para stage.
+Comando:
+	git add -p
+
+Exemplo:
+	git add -p
+	
+	
+------------------------------------
+
+Ação:	
+	Mostrar log dos comando realizados do historico da sua branch.
+Comando:
+	git reflog
+	
+Exemplo:
+	git reflog
+	
+------------------------------------
+
+Ação:	
+	Cria uma branch baseada em um commit especifico. Utilizado para realizar restaurações de códigos.
+Comando:
+	git checkout -b <nome-branch> <sha1 commit>
+	
+Exemplo:
+	git checkout -b 'branch-baseada-em-sha1-do-commit' 1579acc
+	git checkout master 
+	git rebase branch-baseada-em-sha1-do-commit //restalra master com branch especificada
+	git branch -d branch-baseada-em-sha1-do-commit // apaga branch temporaria
+	
+	 
